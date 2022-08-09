@@ -1,0 +1,104 @@
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  --gap: 24px;
+  --main-color: rgb(6, 31, 70);
+  --theme-color: #29292a;
+  --light-color: rgb(206, 206, 206);
+  --card-color: rgb(98, 115, 224);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: var(--gap);
+  background-color: var(--main-color);
+  /* color: var(--main-color); */
+  font-weight: bold;
+
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.118);
+  position: relative;
+  z-index: 10;
+}
+
+footer {
+  font-size: 10px;
+  text-align: center;
+  background-color: var(--light-color);
+  color: var(--theme-color);
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+main {
+  flex: auto;
+  background-color: var(--theme-color);
+
+  /* padding: var(--gap); */
+  overflow: auto;
+}
+
+.movie-cards {
+  /* height: 100%; */
+  /* width: 100%; */
+  display: flex;
+  margin: 36px;
+  gap: 36px;
+  flex-flow: wrap;
+}
+
+.movie-card {
+  background-color: var(--card-color);
+  /* color: var(--main-color); */
+  padding: 16px;
+  height: 130px;
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.27);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  /* overflow: visible; */
+}
+
+.movie-card-text {
+  /* background-color: rgb(110, 70, 70); */
+  flex: auto;
+}
+
+.movie-card-img {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.film-svg {
+  height: 180px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.genre-svg {
+  position: absolute;
+  top: 70px;
+  left: 50px;
+  height: 50px;
+  width: auto;
+}
+
+
