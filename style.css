@@ -85,20 +85,71 @@ main {
   align-items: center;
   gap: 16px;
   /* overflow: visible; */
+  position: relative;
+}
+
+/* Floating icons on movie card */
+.edit-movie,
+.remove-movie {
+  background-color: #c15f5f;
+  border-radius: 50%;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.27);
+  font-weight: bolder;
+  font-size: 1rem;
+  height: 35px;
+  width: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+
+  cursor: pointer;
+}
+
+.edit-movie {
+  background-color: #4e4e4e;
+  top: -10px
+}
+
+.edit-movie-img,
+.remove-movie-img {
+  height: 17px;
+  width: auto;
+}
+
+.remove-movie:hover {
+  background-color: rgb(245, 149, 149);
+}
+
+.edit-movie:hover {
+  background-color: #8c8c8c;
+}
+
+.remove-movie:active {
+  background-color: rgb(255, 193, 193);
+}
+
+.edit-movie:active {
+  background-color: rgb(184, 184, 184);
 }
 
 .movie-card-text {
   /* background-color: rgb(110, 70, 70); */
   flex: auto;
-  font-size: 0.8rem;
+  font-size: calc(0.6rem + 0.2vw);
 }
 
 .rating {
-  width: 20px;
+  width: 15px;
   height: auto;
 
   display: flex;
-  gap: 3px;
+  align-items: center;
+  gap: 1.5px;
 }
 
 .watched {
@@ -108,7 +159,7 @@ main {
   padding: 4px;
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .movie-card-img {
@@ -164,3 +215,5 @@ main {
   height: 30px;
   width: auto;
 }
+
+
