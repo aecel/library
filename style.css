@@ -4,8 +4,9 @@
   --gap: 24px;
   --main-color: rgb(6, 31, 70);
   --theme-color: #29292a;
-  --light-color: rgb(206, 206, 206);
+  --light-color: rgb(189, 189, 189);
   --card-color: rgb(98, 115, 224);
+  --shadow: 5px 5px rgba(0, 0, 0, 0.27);
 }
 
 html,
@@ -23,20 +24,31 @@ body {
 
 header {
   padding: var(--gap);
-  background-color: var(--main-color);
-  /* color: var(--main-color); */
+  padding-left: 36px;
+  padding-right: 36px;
+  background-color: var(--light-color);
+  color: var(--main-color);
   font-weight: bold;
+  font-size: 1.5rem;
 
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.118);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  
+  box-shadow: var(--shadow);
   position: relative;
-  z-index: 10;
+  z-index: 8;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
 }
 
 footer {
   font-size: 10px;
   text-align: center;
-  background-color: var(--light-color);
-  color: var(--theme-color);
+  background-color: #1a1a1a;
   padding-left: var(--gap);
   padding-right: var(--gap);
   padding-top: 12px;
@@ -67,7 +79,7 @@ main {
   height: 130px;
   width: 300px;
   border-radius: 20px;
-  box-shadow: 8px 8px rgba(0, 0, 0, 0.27);
+  box-shadow: var(--shadow);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -78,6 +90,25 @@ main {
 .movie-card-text {
   /* background-color: rgb(110, 70, 70); */
   flex: auto;
+  font-size: 0.8rem;
+}
+
+.rating {
+  width: 20px;
+  height: auto;
+
+  display: flex;
+  gap: 3px;
+}
+
+.watched {
+  background-color: var(--theme-color);
+  /* color: var(--main-color); */
+  box-shadow: var(--shadow) inset;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
 }
 
 .movie-card-img {
@@ -89,16 +120,47 @@ main {
 .film-svg {
   height: 180px;
   position: relative;
-  top: 0;
+  top: 2px;
   left: 0;
 }
 
-.genre-svg {
+.genre-svg-container {
+  /* background-color: aliceblue; */
   position: absolute;
   top: 70px;
   left: 50px;
   height: 50px;
   width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.genre-svg {
+  height: 50px;
+  width: auto;
+}
 
+.add-movie {
+  background-color: var(--light-color);
+  color: var(--main-color);
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  font-weight: bolder;
+  font-size: 3rem;
+  height: 60px;
+  width: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  bottom: 60px;
+  right: 30px;
+}
+
+.add-movie-img {
+  height: 30px;
+  width: auto;
+}
