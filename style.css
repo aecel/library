@@ -6,6 +6,8 @@
   --theme-color: #29292a;
   --light-color: rgb(189, 189, 189);
   --card-color: rgb(98, 115, 224);
+  --green: #5fc195;
+  --red: #c15f5f;
   --shadow: 5px 5px rgba(0, 0, 0, 0.27);
 }
 
@@ -59,13 +61,10 @@ main {
   flex: auto;
   background-color: var(--theme-color);
 
-  /* padding: var(--gap); */
   overflow: auto;
 }
 
 .movie-cards {
-  /* height: 100%; */
-  /* width: 100%; */
   display: flex;
   margin: 36px;
   gap: 36px;
@@ -74,7 +73,6 @@ main {
 
 .movie-card {
   background-color: var(--card-color);
-  /* color: var(--main-color); */
   padding: 16px;
   height: 130px;
   width: 300px;
@@ -84,14 +82,13 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  /* overflow: visible; */
   position: relative;
 }
 
 /* Floating icons on movie card */
 .edit-movie,
 .remove-movie {
-  background-color: #c15f5f;
+  background-color: var(--red);
   border-radius: 50%;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.27);
   font-weight: bolder;
@@ -159,7 +156,41 @@ main {
   padding: 4px;
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
+  position: relative;
+  min-height: 1rem;
+  
+}
+
+.watched-icon-container {
+  background-color: #5fc195;
+  border-radius: 50%;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.27);
+  font-weight: bolder;
+  font-size: 1rem;
+  height: 25px;
+  width: 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  cursor: pointer;
+}
+
+.watched-icon {
+  height: 14px;
+}
+
+.watched-text {
+  position: absolute;
+  top: 0px;
+  left: 30px;
+  padding-top: 4px;
 }
 
 .movie-card-img {
@@ -192,8 +223,13 @@ main {
   width: auto;
 }
 
+.ghost-div {
+  min-height: 10vh;
+}
+
 .add-movie {
   background-color: var(--light-color);
+  border: none;
   color: var(--main-color);
   border-radius: 50%;
   box-shadow: var(--shadow);
@@ -209,6 +245,8 @@ main {
   position: fixed;
   bottom: 60px;
   right: 30px;
+
+  cursor: pointer;
 }
 
 .add-movie-img {
@@ -216,4 +254,118 @@ main {
   width: auto;
 }
 
+.add-movie:hover {
+  background-color: rgb(101, 142, 209);
+}
 
+.add-movie:active {
+  background-color: rgb(200, 221, 255);
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  border-radius: 20px;
+  color: #1a1a1a;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px; /* Could be more or less, depending on screen size */
+  /* height: 300px; */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input,
+select,
+label {
+  margin-top: 5px;
+  width: 160px;
+  display: block;
+}
+
+select {
+  width: 171px;
+}
+
+input,
+select {
+  border-radius: 10px;
+  border: 2px solid #fff;
+  padding-left: 5px;
+}
+
+input:invalid,
+select:invalid {
+  border-color: red;
+  border-style: dashed;
+}
+
+input:valid,
+select:valid {
+  border-color: rgb(220, 220, 220);
+}
+
+label {
+  color: gray;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+input[type="checkbox"] {
+  width: 15px;
+}
+
+.movie-watched-container,
+.movie-ratings {
+  display: flex;
+  flex-direction: row;
+  align-items: bottom;
+}
+
+.submit-movie {
+  padding: 10px;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  cursor: pointer;
+
+}
