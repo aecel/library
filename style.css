@@ -36,7 +36,7 @@ header {
   display: flex;
   gap: 16px;
   align-items: center;
-  
+
   box-shadow: var(--shadow);
   position: relative;
   z-index: 8;
@@ -109,7 +109,7 @@ main {
 
 .edit-movie {
   background-color: #4e4e4e;
-  top: -10px
+  top: -10px;
 }
 
 .edit-movie-img,
@@ -159,7 +159,6 @@ main {
   border-radius: 20px;
   position: relative;
   min-height: 1rem;
-  
 }
 
 .watched-icon-container {
@@ -272,21 +271,21 @@ main {
   width: 100vw; /* Full width */
   height: 100vh; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #e4e4e4;
   border-radius: 20px;
-  color: #1a1a1a;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 10% auto;
+  /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 300px; /* Could be more or less, depending on screen size */
+  width: 320px; /* Could be more or less, depending on screen size */
   /* height: 300px; */
+  accent-color: var(--main-color);
 }
 
 /* The Close Button */
@@ -314,48 +313,194 @@ input,
 select,
 label {
   margin-top: 5px;
-  width: 160px;
+  width: 250px;
   display: block;
 }
 
 select {
-  width: 171px;
+  width: 260px;
 }
 
 input,
 select {
+  padding-top: 5px;
+  padding-bottom: 5px;
   border-radius: 10px;
-  border: 2px solid #fff;
-  padding-left: 5px;
+  border: none;
+  padding-left: 10px;
 }
 
 input:invalid,
 select:invalid {
   border-color: red;
   border-style: dashed;
+  border-width: 2px;
 }
 
-input:valid,
+/* input:valid,
 select:valid {
   border-color: rgb(220, 220, 220);
-}
+} */
 
 label {
-  color: gray;
+  color: rgb(89, 89, 89);
   font-size: 14px;
   font-weight: bold;
 }
 
+/* input[type="checkbox"] {
+  width: 25px;
+  border-radius: 50%;
+  border: none;
+} */
 
-input[type="checkbox"] {
-  width: 15px;
+/* --- CUSTOM CHECKBOX --- */
+
+/* The container */
+.movie-watched {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.movie-watched-container,
+/* Hide the browser's default checkbox */
+.movie-watched input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.movie-watched:hover input ~ .checkbox-checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.movie-watched input:checked ~ .checkbox-checkmark {
+  background-color: var(--main-color);
+}
+
+/* Create the checkbox-checkmark/indicator (hidden when not checked) */
+.checkbox-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkbox-checkmark when checked */
+.movie-watched input:checked ~ .checkbox-checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.movie-watched .checkbox-checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .movie-ratings {
   display: flex;
+  flex-direction: column;
+  width: 265px;
+}
+
+.rating-radio {
+  margin-top: 5px;
+  display: flex;
   flex-direction: row;
-  align-items: bottom;
+  gap: 12px
+}
+
+/* --- CUSTOM CHECKBOX --- */
+
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  /* font-size: 22px; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .checkmark {
+  background-color: var(--main-color);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
 }
 
 .submit-movie {
@@ -367,5 +512,4 @@ input[type="checkbox"] {
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   cursor: pointer;
-
 }

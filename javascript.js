@@ -152,7 +152,8 @@ console.log(myMovies.listMovies())
 
 // TEMP make movie cards for each movie in the library
 const appendMovieCard = (movie) => {
-  const html = `
+  const html = //html
+  `
     <div class="movie-card" data-title="${movie.getTitle()}">
       <div class="movie-card-text">
         <p style="font-weight: bold">${movie.getTitle()}  ${movie.getYear()}</p>
